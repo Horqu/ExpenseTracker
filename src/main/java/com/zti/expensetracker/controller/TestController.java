@@ -1,4 +1,4 @@
-package com.zti.expensetracker;
+package com.zti.expensetracker.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

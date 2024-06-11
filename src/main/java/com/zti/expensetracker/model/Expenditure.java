@@ -1,11 +1,18 @@
 package com.zti.expensetracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "expenditure")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Expenditure {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,7 +20,7 @@ public class Expenditure {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id", nullable = false)
     private User creator;
 
@@ -21,15 +28,19 @@ public class Expenditure {
     private String description;
 
     @Column(nullable = false)
-    private double amount;
+    private BigDecimal amount;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    @OneToMany(mappedBy = "expenditure", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("expenditure")
+    private Set<ExpenditureBudget> budgets;
+
     public Expenditure() {}
 
-    public Expenditure(String name, User creator, String description, double amount, Date date) {
+    public Expenditure(String name, User creator, String description, BigDecimal amount, Date date) {
         this.name = name;
         this.creator = creator;
         this.description = description;
@@ -69,11 +80,11 @@ public class Expenditure {
         this.description = description;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -83,6 +94,14 @@ public class Expenditure {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Set<ExpenditureBudget> getBudgets() {
+        return budgets;
+    }
+
+    public void setBudgets(Set<ExpenditureBudget> budgets) {
+        this.budgets = budgets;
     }
 
     @Override

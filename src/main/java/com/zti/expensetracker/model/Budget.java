@@ -1,12 +1,15 @@
 package com.zti.expensetracker.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "budget")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
