@@ -1,5 +1,6 @@
 package com.zti.expensetracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class Budget {
     private Date date;
 
     @OneToMany(mappedBy = "budget", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<BudgetUser> users;
 
     public Budget() {}

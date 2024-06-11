@@ -1,5 +1,8 @@
 package com.zti.expensetracker.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import java.io.Serializable;
 
@@ -12,10 +15,12 @@ public class BudgetUser implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("budgetId")
+    @JsonBackReference
     private Budget budget;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("userId")
+    @JsonBackReference
     private User user;
 
     public BudgetUser() {}
@@ -34,6 +39,7 @@ public class BudgetUser implements Serializable {
         this.id = id;
     }
 
+    @JsonManagedReference
     public Budget getBudget() {
         return budget;
     }
@@ -42,6 +48,7 @@ public class BudgetUser implements Serializable {
         this.budget = budget;
     }
 
+    @JsonManagedReference
     public User getUser() {
         return user;
     }
