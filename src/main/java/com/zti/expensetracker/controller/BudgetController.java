@@ -87,4 +87,13 @@ public class BudgetController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBudget(@PathVariable Long id) {
+        Budget budget = budgetRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Budget not found"));
+
+        budgetRepository.delete(budget);
+        return ResponseEntity.ok().build();
+    }
+
 }

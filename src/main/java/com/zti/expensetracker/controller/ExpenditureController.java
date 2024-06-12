@@ -180,4 +180,14 @@ public class ExpenditureController {
         settlement.setAmount(amount);
         return settlement;
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteExpenditure(@PathVariable Long id) {
+        Expenditure expenditure = expenditureRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Expenditure not found"));
+
+        expenditureRepository.delete(expenditure);
+        return ResponseEntity.ok().build();
+    }
+    
 }
