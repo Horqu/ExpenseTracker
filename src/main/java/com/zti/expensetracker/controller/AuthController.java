@@ -39,15 +39,27 @@ public class AuthController {
         return ResponseEntity.ok(savedUser);
     }
 
+    // @PostMapping("/login")
+    // public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+    //     authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+
+    //     final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getUsername());
+
+    //     final String token = jwtTokenUtil.generateToken(userDetails, user.getId());
+
+    //     return ResponseEntity.ok(new JwtResponse("Bearer " + token));
+    // }
+
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
         final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getUsername());
+        final User user = userService.findByUsername(authenticationRequest.getUsername());
 
-        final String token = jwtTokenUtil.generateToken(userDetails);
+        final String token = jwtTokenUtil.generateToken(userDetails, user.getId());
 
-        return ResponseEntity.ok(new JwtResponse("Bearer " + token));
+        return ResponseEntity.ok(new JwtResponse(token));
     }
 
     private void authenticate(String username, String password) throws Exception {

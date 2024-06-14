@@ -28,6 +28,11 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    public User findByUsername(String username) {
+        return userRepository.findByLogin(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> userOptional = userRepository.findByLogin(username);
