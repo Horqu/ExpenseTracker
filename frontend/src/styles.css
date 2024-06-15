@@ -32,6 +32,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"],
+input[type="date"],
 button {
   display: block;
   width: 100%;
@@ -47,7 +48,8 @@ button {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
-input[type="number"]:focus {
+input[type="number"]:focus,
+input[type="date"]:focus {
   border-color: #007bff;
   outline: none;
 }
@@ -70,4 +72,25 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #2e2e2e;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+li h2, li h3 {
+  margin: 0 0 10px 0;
+}
+
+li p {
+  margin: 5px 0;
 }

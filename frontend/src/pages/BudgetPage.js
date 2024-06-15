@@ -10,8 +10,8 @@ function BudgetPage() {
         <h1>Szczegóły Budżetu</h1>
       </header>
       <BudgetDetails />
-      <NewExpenseForm />
-      <AddUserToBudgetForm />
+      {/* <NewExpenseForm /> */}
+      {/* <AddUserToBudgetForm /> */}
     </div>
   );
 }

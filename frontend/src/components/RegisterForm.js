@@ -1,21 +1,48 @@
-import React, { useState, useContext } from 'react';
-import { UserContext } from './UserProvider';
+import React, { useState } from 'react';
+import apiFetch from '../api/api';
 
 function RegisterForm() {
+  const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setUser } = useContext(UserContext);
+  const [message, setMessage] = useState('');
 
-  const handleRegister = () => {
-    // Implement the registration logic
-    // Example:
-    // const user = registerUser(email, password);
-    // setUser(user);
+  const handleRegister = async () => {
+    const newUser = {
+      login,
+      email,
+      password,
+    };
+
+    try {
+      const response = await apiFetch('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(newUser),
+      });
+
+      console.log('User registered successfully', response);
+      setMessage('Rejestracja zakończona sukcesem!');
+      
+      // Reset form fields
+      setLogin('');
+      setEmail('');
+      setPassword('');
+    } catch (error) {
+      console.error('Error during registration:', error);
+      setMessage('Wystąpił błąd podczas rejestracji.');
+    }
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Rejestracja</h2>
+      {message && <p>{message}</p>}
+      <input
+        type="text"
+        placeholder="Nazwa użytkownika"
+        value={login}
+        onChange={e => setLogin(e.target.value)}
+      />
       <input
         type="email"
         placeholder="Email"
@@ -34,3 +61,4 @@ function RegisterForm() {
 }
 
 export default RegisterForm;
+

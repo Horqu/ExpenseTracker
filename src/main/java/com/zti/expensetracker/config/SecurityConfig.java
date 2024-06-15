@@ -34,29 +34,13 @@ public class SecurityConfig {
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
-    // @Bean
-    // public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    //     http
-    //         .csrf().disable()
-    //         .authorizeRequests()
-    //         .requestMatchers("/auth/register").permitAll()
-    //         .anyRequest().authenticated()
-    //         .and()
-    //         .formLogin()
-    //         .loginPage("/auth/login")
-    //         .permitAll()
-    //         .and()
-    //         .logout()
-    //         .permitAll();
-    //     return http.build();
-    // }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
             .authorizeRequests()
-            .requestMatchers("/auth/register", "/auth/login").permitAll()
+            .requestMatchers("/auth/register", "/auth/login", "/api/**").permitAll()
             .anyRequest().authenticated()
             .and()
             .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

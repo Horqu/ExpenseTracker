@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
 import java.math.BigDecimal;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/expenditures")
 public class ExpenditureController {
 
