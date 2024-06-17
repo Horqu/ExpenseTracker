@@ -11,8 +11,28 @@ header {
   background-color: #1f1f1f;
   color: #ffffff;
   padding: 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #333;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header .logout-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  width: auto;
+}
+
+header .logout-button:hover {
+  background-color: #0056b3;
 }
 
 .container {

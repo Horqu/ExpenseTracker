@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import LogoutButton from '../components/LogoutButton';
 
 function ReportPage() {
   const location = useLocation();
@@ -18,7 +19,10 @@ function ReportPage() {
 
   return (
     <div className="container">
-      <h1>Raport</h1>
+      <header>
+        <h1>Raport</h1>
+        <LogoutButton />
+      </header>
 
       <h2>Salda użytkowników</h2>
       <ul>
