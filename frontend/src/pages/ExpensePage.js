@@ -6,7 +6,7 @@ function ExpensePage() {
   return (
     <div className="container">
       <header>
-        <h1>Szczegóły Wydatku</h1>
+        <h1>Expenditure details</h1>
         <LogoutButton />
       </header>
       <ExpenseDetails />

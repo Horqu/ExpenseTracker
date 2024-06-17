@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div className="container">
       <header>
-        <h1>Strona Główna</h1>
+        <h1>Main page</h1>
       </header>
       <LoginForm />
       <RegisterForm />

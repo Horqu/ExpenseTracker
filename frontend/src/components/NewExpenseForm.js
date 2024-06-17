@@ -12,20 +12,20 @@ function NewExpenseForm({ budgetId }) {
 
   return (
     <div>
-      <h2>Dodaj Nowy Wydatek</h2>
+      <h2>Add new expenditure</h2>
       <input
         type="text"
-        placeholder="Nazwa wydatku"
+        placeholder="Title of expenditure"
         value={name}
         onChange={e => setName(e.target.value)}
       />
       <input
         type="number"
-        placeholder="Kwota"
+        placeholder="Amount"
         value={amount}
         onChange={e => setAmount(e.target.value)}
       />
-      <button onClick={handleAddExpense}>Dodaj Wydatek</button>
+      <button onClick={handleAddExpense}>Add expenditure</button>
     </div>
   );
 }

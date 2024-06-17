@@ -49,16 +49,16 @@ function NewBudgetForm() {
 
   return (
     <div className="container">
-      <h2>Dodaj Nowy Budżet</h2>
+      <h2>Add new budget</h2>
       <input
         type="text"
-        placeholder="Nazwa budżetu"
+        placeholder="Title of budget"
         value={name}
         onChange={e => setName(e.target.value)}
       />
       <input
         type="text"
-        placeholder="Opis budżetu"
+        placeholder="Description"
         value={description}
         onChange={e => setDescription(e.target.value)}
       />
@@ -67,7 +67,7 @@ function NewBudgetForm() {
         value={date}
         onChange={e => setDate(e.target.value)}
       />
-      <button onClick={handleAddBudget}>Dodaj Budżet</button>
+      <button onClick={handleAddBudget}>Add budget</button>
     </div>
   );
 }

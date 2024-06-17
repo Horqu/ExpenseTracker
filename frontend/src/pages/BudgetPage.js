@@ -8,7 +8,7 @@ function BudgetPage() {
   return (
     <div className="container">
       <header>
-        <h1>Szczegóły Budżetu</h1>
+        <h1>Budget details</h1>
         <LogoutButton />
       </header>
       <BudgetDetails />

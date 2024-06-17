@@ -11,7 +11,7 @@ function LogoutButton() {
     navigate('/');
   };
 
-  return <button className="logout-button" onClick={handleLogout}>Wyloguj się</button>;
+  return <button className="logout-button" onClick={handleLogout}>Logout</button>;
 }
 
 export default LogoutButton;

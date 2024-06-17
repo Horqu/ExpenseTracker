@@ -28,14 +28,14 @@ function AddUserToBudgetForm({ budgetId }) {
 
   return (
     <div className="container">
-      <h2>Dodaj Użytkownika do Budżetu</h2>
+      <h2>Add user to budget</h2>
       <input
         type="email"
-        placeholder="Email użytkownika"
+        placeholder="User email"
         value={email}
         onChange={e => setEmail(e.target.value)}
       />
-      <button onClick={handleAddUser}>Dodaj Użytkownika</button>
+      <button onClick={handleAddUser}>Add user</button>
     </div>
   );
 }

@@ -21,7 +21,7 @@ function RegisterForm() {
       });
 
       console.log('User registered successfully', response);
-      setMessage('Rejestracja zakończona sukcesem!');
+      setMessage('Successfully registered!');
       
       // Reset form fields
       setLogin('');
@@ -29,17 +29,17 @@ function RegisterForm() {
       setPassword('');
     } catch (error) {
       console.error('Error during registration:', error);
-      setMessage('Wystąpił błąd podczas rejestracji.');
+      setMessage('Registration failed!');
     }
   };
 
   return (
     <div className="container">
-      <h2>Rejestracja</h2>
+      <h2>Register</h2>
       {message && <p>{message}</p>}
       <input
         type="text"
-        placeholder="Nazwa użytkownika"
+        placeholder="Username"
         value={login}
         onChange={e => setLogin(e.target.value)}
       />
@@ -51,11 +51,11 @@ function RegisterForm() {
       />
       <input
         type="password"
-        placeholder="Hasło"
+        placeholder="Password"
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-      <button onClick={handleRegister}>Zarejestruj się</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 }

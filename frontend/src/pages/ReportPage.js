@@ -24,7 +24,7 @@ function ReportPage() {
         <LogoutButton />
       </header>
 
-      <h2>Salda użytkowników</h2>
+      <h2>User balances</h2>
       <ul>
         {reportData.userBalances.map(userBalance => (
           <li key={userBalance.userId}>
@@ -33,11 +33,11 @@ function ReportPage() {
         ))}
       </ul>
 
-      <h2>Rozliczenia</h2>
+      <h2>Settlements</h2>
       <ul>
         {reportData.settlements.map(settlement => (
           <li key={`${settlement.fromUserId}-${settlement.toUserId}`}>
-            Użytkownik {userMap[settlement.fromUserId]} powinien zapłacić użytkownikowi {userMap[settlement.toUserId]} kwotę {settlement.amount}
+            User {userMap[settlement.fromUserId]} should return {settlement.amount} to user: {userMap[settlement.toUserId]}
             {/* Użytkownik {settlement.fromUserId} powinien zapłacić użytkownikowi {settlement.toUserId} kwotę {settlement.amount} */}
           </li>
         ))}

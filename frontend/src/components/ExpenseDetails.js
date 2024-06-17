@@ -15,9 +15,9 @@ function ExpenseDetails() {
 
   return (
     <div>
-      <h1>Szczegóły Wydatku: {expense.name}</h1>
-      <p>Kwota: {expense.amount}</p>
-      <button onClick={() => deleteExpense(id)}>Usuń Wydatek</button>
+      <h1>Expenditure details: {expense.name}</h1>
+      <p>Amout: {expense.amount}</p>
+      <button onClick={() => deleteExpense(id)}>Delete expenditure</button>
     </div>
   );
 }

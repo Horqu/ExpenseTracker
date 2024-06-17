@@ -44,7 +44,7 @@ function LoginForm() {
 
   return (
     <div>
-      <h2>Logowanie</h2>
+      <h2>Login</h2>
       <input
         type="text"
         placeholder="Username"

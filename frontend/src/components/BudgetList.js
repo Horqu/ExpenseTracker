@@ -25,7 +25,7 @@ function BudgetList() {
 
   return (
     <div className="container">
-      <h1>Budżety</h1>
+      <h1>Budgets</h1>
       <ul>
         {budgets.map(budget => (
           <li key={budget.id}>

@@ -75,7 +75,7 @@ function BudgetDetails() {
       <p>{budget.description}</p>
       <p>{budget.date}</p>
 
-      <h2>Wydatki</h2>
+      <h2>Expenditures</h2>
       <ul>
         {expenditures.map(exp => (
           <li key={exp.id}>
@@ -84,15 +84,15 @@ function BudgetDetails() {
             <p>Description: {exp.description}</p>
             <p>Date: {exp.date}</p>
             <p>Creator: {exp.creator.login}</p>
-            <button onClick={() => deleteExpenditure(exp.id)}>DELETE</button>
+            <button onClick={() => deleteExpenditure(exp.id)}>Delete expenditure</button>
           </li>
         ))}
       </ul>
 
       <NewExpenditureForm budgetId={id} />
       <AddUserToBudgetForm budgetId={id} />
-      <button onClick={() => deleteBudget(id)}>Usuń Budżet</button>
-      <button onClick={generateReport}>Generuj raport</button>
+      <button onClick={() => deleteBudget(id)}>Delete budget</button>
+      <button onClick={generateReport}>Generate raport</button>
     </div>
   );
 }
