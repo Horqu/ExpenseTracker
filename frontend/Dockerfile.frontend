@@ -1,0 +1,15 @@
+FROM node:latest
+
+WORKDIR ./
+
+# Kopiowanie kodu źródłowego
+COPY . .
+
+# Instalacja zależności
+RUN npm install
+
+# Budowanie aplikacji
+RUN npm run build
+
+# Uruchamianie aplikacji
+CMD ["npm", "start"]

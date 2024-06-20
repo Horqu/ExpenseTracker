@@ -1,0 +1,15 @@
+FROM quay.io/centos/centos:stream9
+
+# Instalacja Javy OpenJDK 17
+RUN dnf install -y java-17-openjdk-devel
+
+WORKDIR ./
+
+# Kopiowanie kodu źródłowego
+COPY . .
+
+# Budowanie aplikacji
+RUN ./gradlew build
+
+# Uruchamianie aplikacji
+CMD ["java", "-jar", "build/libs/ExpenseTracker-0.0.1-SNAPSHOT.jar"]
